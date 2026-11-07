@@ -3,3 +3,5 @@
 /.bun/
 /coverage/
 .DS_Store
+# CarryCtx worktrees: one checkout per task, never committed
+.worktrees/
