@@ -7,12 +7,13 @@ check: lint-md pins
 lint-md:
     markdownlint-cli2 --config .markdownlint-cli2.jsonc
 
-# Fail when a mount is missing (-), on a different commit (+) or conflicted (U).
+# Fail when a mount is missing (-), off its pin (+), conflicted (U) or dirty.
 pins:
     @git submodule status --recursive | awk '\
         /^-/ { print "UNINITIALISED: " $$2 " (run `just update`)"; bad = 1 } \
         /^\+/ { print "PIN MISMATCH: " $$2 " (commit does not match the pin)"; bad = 1 } \
         /^U/ { print "CONFLICT: " $$2; bad = 1 } \
+        /dirty/ { print "DIRTY MOUNT: " $$2 " (uncommitted or off-pin content)"; bad = 1 } \
         END { if (bad) exit 1 }'
     @echo "pins ok"
 
