@@ -1,0 +1,40 @@
+name: Quality gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdown:
+    name: Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v25
+        with:
+          globs: '**/*.md'
+
+  mount:
+    name: Submodule pins
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - name: Every mount is present and on its pinned commit
+        run: |
+          git submodule status --recursive | tee /tmp/pins.txt
+          if grep -qE '^[-+]' /tmp/pins.txt; then
+            echo "A mount is missing or off its pin; run 'just update' locally." >&2
+            exit 1
+          fi

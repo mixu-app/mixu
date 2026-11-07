@@ -1,0 +1,18 @@
+Mixu (谜序) — entry-point repository
+Copyright (c) 2026 The Mixu (谜序) Authors
+
+This repository contains only scaffolding: the README, the justfile, CI
+configuration and the Git submodule pins. That scaffolding is licensed under the
+Apache License 2.0 (see LICENSE).
+
+The mounted components are NOT covered by that license. Each keeps its own:
+
+| Mount | License |
+|---|---|
+| client/ | MPL-2.0 |
+| graph/, spoiler/, renderer/, contracts/ | Apache-2.0 |
+| fixtures/ | CC0-1.0 (tools: Apache-2.0) |
+| website/ | Apache-2.0 (copy: CC-BY-4.0) |
+
+Trademarks are not licensed: see https://github.com/mixu-app/.github/blob/main/TRADEMARKS.md
+Third-party book content is not licensed under any of the above.

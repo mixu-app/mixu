@@ -1,0 +1,8 @@
+[repo]
+name = "mixu"
+kind = "entry"
+lang = "md"
+visibility = "public"
+license = "Apache-2.0"
+role = "single public entry point: mounts the open-source components as submodules"
+mounts = ["client", "graph", "spoiler", "renderer", "contracts", "fixtures", "website"]

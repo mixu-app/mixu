@@ -1,0 +1,21 @@
+[submodule "client"]
+	path = client
+	url = https://github.com/mixu-app/mixu-client.git
+[submodule "graph"]
+	path = graph
+	url = https://github.com/mixu-app/mixu-graph.git
+[submodule "spoiler"]
+	path = spoiler
+	url = https://github.com/mixu-app/mixu-spoiler.git
+[submodule "renderer"]
+	path = renderer
+	url = https://github.com/mixu-app/mixu-renderer.git
+[submodule "contracts"]
+	path = contracts
+	url = https://github.com/mixu-app/mixu-contracts.git
+[submodule "fixtures"]
+	path = fixtures
+	url = https://github.com/mixu-app/mixu-fixtures.git
+[submodule "website"]
+	path = website
+	url = https://github.com/mixu-app/mixu-website.git
