@@ -8,6 +8,8 @@
   "globs": ["**/*.md"],
   "ignores": [
     "**/.git/**",
+    "**/.carryctx/**",
+    "**/.worktrees/**",
     "**/node_modules/**",
     "**/.venv/**",
     "client/**",

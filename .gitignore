@@ -5,3 +5,4 @@
 .DS_Store
 # CarryCtx worktrees: one checkout per task, never committed
 .worktrees/
+.carryctx/config.local.toml
